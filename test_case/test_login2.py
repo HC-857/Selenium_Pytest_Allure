@@ -7,7 +7,8 @@ import pytest
 class TestLogin2:
     base_url = "http://njqa.zgyjyx.net/teacher/login/login.html"
     login_message = [
-        {"username": "66666666666", "password": "popcap123"},
+        {"username": "15586804871", "password": "popcap123"},
+        {"username": "15586804871", "password": "popcap123"},
         {"username": "66666666666", "password": "popcap123"},
     ]
 

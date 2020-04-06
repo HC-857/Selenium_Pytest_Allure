@@ -8,7 +8,8 @@ class TestLogin:
     base_url = "http://njqa.zgyjyx.net/teacher/login/login.html"
     login_message = [
         {"username": "15586804871", "password": "popcap123"},
-        {"username": "13382013955", "password": "popcap123"},
+        {"username": "15586804871", "password": "popcap123"},
+        {"username": "15586804871", "password": "popcap123"},
     ]
 
     @allure.story("登录用例")  # 归为子类
