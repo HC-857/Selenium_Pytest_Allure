@@ -9,10 +9,6 @@ class TestLogin2:
     login_message = [
         {"username": "66666666666", "password": "popcap123"},
         {"username": "66666666666", "password": "popcap123"},
-        {"username": "66666666666", "password": "popcap123"},
-        {"username": "66666666666", "password": "popcap123"},
-        {"username": "66666666666", "password": "popcap123"},
-        {"username": "66666666666", "password": "popcap123"},
     ]
 
     @allure.story("登录用例")  # 归为子类

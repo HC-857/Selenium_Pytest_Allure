@@ -35,15 +35,16 @@ class TestManager:
         self.log.info("生成报告……")
         result_path = os.path.join(config.REPORT_RESULT_PATH, driver_info)
         report_path = os.path.join(config.REPORT_END_PATH, driver_info)
+        history_path = os.path.join(config.REPORT_END_PATH, driver_info, "history")
         os.system(f"allure generate {result_path} -o {report_path} --clean")
         # 复制history文件夹，在本地生成趋势图
-        files = os.listdir(config.REPORT_HISTORY_PATH)
+        files = os.listdir(history_path)
         result_history_dir = os.path.join(config.REPORT_RESULT_PATH, driver_info, "history")
         # 如果不存在则先创建文件夹
         if not os.path.exists(result_history_dir):
             os.mkdir(result_history_dir)
         for file in files:
-            shutil.copy(os.path.join(config.REPORT_HISTORY_PATH, file), result_history_dir)
+            shutil.copy(os.path.join(history_path, file), result_history_dir)
 
     def run_allure_server(self):
         self.log.info("启动allure服务！")
