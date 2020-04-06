@@ -11,8 +11,8 @@ def run_parallel(driver_info):
     pytest.main([driver_info[1],
                  f"--cmdopt={driver_info[0]}", "--alluredir",
                  f"./report/allure_result/{driver_info[2]}",])
-    manager = TestManager()
-    manager.generate_report(driver_info[2])
+    # manager = TestManager()
+    # manager.generate_report(driver_info[2])
 
 
 def pytest_start():
