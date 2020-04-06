@@ -37,11 +37,9 @@ class TestManager:
         # 复制history文件夹，在本地生成趋势图
         result_history_dir = os.path.join(config.REPORT_RESULT_PATH, "history")
         # 如果不存在则先创建文件夹
+        files = os.listdir(config.REPORT_HISTORY_PATH)
         if not os.path.exists(result_history_dir):
             os.mkdir(result_history_dir)
-        if not os.path.exists(config.REPORT_HISTORY_PATH):
-            os.mkdir(config.REPORT_HISTORY_PATH)
-        files = os.listdir(config.REPORT_HISTORY_PATH)
         for file in files:
             shutil.copy(os.path.join(config.REPORT_HISTORY_PATH, file), result_history_dir)
 
