@@ -26,16 +26,10 @@ def common_browser(cmdopt):
     os.system('chcp 65001')
     print(cmdopt)
     if cmdopt == "chrome":
-        #os.system('taskkill /IM chromedriver.exe /F')  # 杀掉chromeodriver进程
-        #driver_path = config.CHROME_DRIVER
-        #browser = webdriver.Chrome(executable_path=driver_path)
+        # 注意这里5001是selenium grid设置的端口号
         browser = webdriver.Remote(
             command_executor='http://www.laobaaoligei.cn:5001/wd/hub',
             desired_capabilities=DesiredCapabilities.CHROME)
-    elif cmdopt == "firefox":
-        os.system('taskkill /IM geckodriver.exe /F')  # 杀掉geckodriver进程
-        driver_path = config.FIREFOX_DRIVER
-        browser = webdriver.Firefox(executable_path=driver_path)
     else:
         raise Exception
     browser.implicitly_wait(10)
