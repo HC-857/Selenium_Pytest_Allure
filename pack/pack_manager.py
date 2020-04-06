@@ -35,11 +35,11 @@ class TestManager:
         self.log.info("生成报告……")
         os.system(f"allure generate {config.REPORT_RESULT_PATH} -o {config.REPORT_END_PATH} --clean")
         # 复制history文件夹，在本地生成趋势图
-        files = os.listdir(config.REPORT_HISTORY_PATH)
         result_history_dir = os.path.join(config.REPORT_RESULT_PATH, "history")
         # 如果不存在则先创建文件夹
         if not os.path.exists(result_history_dir):
             os.mkdir(result_history_dir)
+        files = os.listdir(config.REPORT_HISTORY_PATH)
         for file in files:
             shutil.copy(os.path.join(config.REPORT_HISTORY_PATH, file), result_history_dir)
 
