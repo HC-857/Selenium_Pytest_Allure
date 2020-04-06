@@ -31,12 +31,14 @@ class TestManager:
         if os.path.exists(config.SCREENSHOT_DIR):
             shutil.rmtree(config.SCREENSHOT_DIR)
 
-    def generate_report(self):
+    def generate_report(self, driver_info):
         self.log.info("生成报告……")
-        os.system(f"allure generate {config.REPORT_RESULT_PATH} -o {config.REPORT_END_PATH} --clean")
+        result_path = os.path.join(config.REPORT_RESULT_PATH, driver_info)
+        report_path = os.path.join(config.REPORT_END_PATH, driver_info)
+        os.system(f"allure generate {result_path} -o {report_path} --clean")
         # 复制history文件夹，在本地生成趋势图
         files = os.listdir(config.REPORT_HISTORY_PATH)
-        result_history_dir = os.path.join(config.REPORT_RESULT_PATH, "history")
+        result_history_dir = os.path.join(config.REPORT_RESULT_PATH, driver_info, "history")
         # 如果不存在则先创建文件夹
         if not os.path.exists(result_history_dir):
             os.mkdir(result_history_dir)
