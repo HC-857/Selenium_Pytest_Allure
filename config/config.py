@@ -16,7 +16,7 @@ FIREFOX_DRIVER = os.path.join(DRIVER_PATH, "geckodriver.exe")
 REPORT_PATH = os.path.join(BASE_PATH, "report")
 REPORT_RESULT_PATH = os.path.join(REPORT_PATH, "allure_result")
 REPORT_END_PATH = os.path.join(REPORT_PATH, "allure_report")
-REPORT_HISTORY_PATH = os.path.join(REPORT_PATH, "allure_result", "history")
+REPORT_HISTORY_PATH = os.path.join(REPORT_PATH, "allure_report", "history")
 
 # ---------------- 日志相关 --------------------
 # 日志级别
