@@ -1,5 +1,7 @@
 import os
 import pytest
+from selenium.webdriver import DesiredCapabilities
+
 from pack.pack_log import logger
 from time import sleep
 from selenium import webdriver
@@ -24,9 +26,12 @@ def common_browser(cmdopt):
     os.system('chcp 65001')
     print(cmdopt)
     if cmdopt == "chrome":
-        os.system('taskkill /IM chromedriver.exe /F')  # 杀掉chromeodriver进程
-        driver_path = config.CHROME_DRIVER
-        browser = webdriver.Chrome(executable_path=driver_path)
+        #os.system('taskkill /IM chromedriver.exe /F')  # 杀掉chromeodriver进程
+        #driver_path = config.CHROME_DRIVER
+        #browser = webdriver.Chrome(executable_path=driver_path)
+        browser = webdriver.Remote(
+            command_executor='http://www.laobaaoligei.cn:5001/wd/hub',
+            desired_capabilities=DesiredCapabilities.CHROME)
     elif cmdopt == "firefox":
         os.system('taskkill /IM geckodriver.exe /F')  # 杀掉geckodriver进程
         driver_path = config.FIREFOX_DRIVER
