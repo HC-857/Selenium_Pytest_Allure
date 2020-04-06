@@ -33,9 +33,7 @@ class TestManager:
 
     def generate_report(self):
         self.log.info("生成报告……")
-        result_path = config.REPORT_RESULT_PATH
-        report_path = config.REPORT_END_PATH
-        os.system(f"allure generate {result_path} -o {report_path} --clean")
+        os.system(f"allure generate {config.REPORT_RESULT_PATH} -o {config.REPORT_END_PATH} --clean")
         # 复制history文件夹，在本地生成趋势图
         files = os.listdir(config.REPORT_HISTORY_PATH)
         result_history_dir = os.path.join(config.REPORT_RESULT_PATH, "history")
