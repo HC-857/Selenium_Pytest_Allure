@@ -35,7 +35,7 @@ class TestManager:
         self.log.info("生成报告……")
         result_path = os.path.join(config.REPORT_RESULT_PATH, driver_info)
         report_path = os.path.join(config.REPORT_END_PATH, driver_info)
-        history_path = os.path.join(config.REPORT_END_PATH, driver_info, "history")
+        history_path = os.path.join(config.REPORT_RESULT_PATH, driver_info, "history")
         os.system(f"allure generate {result_path} -o {report_path} --clean")
         # 复制history文件夹，在本地生成趋势图
         files = os.listdir(history_path)
