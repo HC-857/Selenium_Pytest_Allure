@@ -3,8 +3,8 @@ import pytest
 from multiprocessing import Pool
 
 driver_infos = [
-    ["chrome", "test_case/test_login.py"],
-    ["chrome", "test_case/test_login2.py"]
+    ["chrome", "test_case/test_login.py", "test1"],
+    ["chrome", "test_case/test_login2.py", "test2"]
 ]
 
 def run_parallel(driver_info):
@@ -12,7 +12,7 @@ def run_parallel(driver_info):
                  f"--cmdopt={driver_info[0]}", "--alluredir",
                  f"./report/allure_result/{driver_info[0]}",])
     manager = TestManager()
-    manager.generate_report(driver_info[0])
+    manager.generate_report(driver_info[2])
 
 
 def pytest_start():
